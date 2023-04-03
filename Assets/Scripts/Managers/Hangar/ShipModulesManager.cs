@@ -11,7 +11,7 @@ namespace Managers.Hangar
     {
         [SerializeField] private ItemsStackView _itemsStackView;
         
-        public Action<ModuleConfig> OnModuleHighlightedAction;
+        public Action<IModuleConfig> OnModuleHighlightedAction;
 
         private void Awake()
         {
@@ -32,7 +32,7 @@ namespace Managers.Hangar
             _itemsStackView.gameObject.SetActive(true);
         }
         
-        private void OnModuleHighlighted(ModuleConfig config)
+        private void OnModuleHighlighted(IModuleConfig config)
         {
             OnModuleHighlightedAction?.Invoke(config);
         }

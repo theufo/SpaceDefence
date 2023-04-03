@@ -10,25 +10,25 @@ namespace Managers.Init
         [SerializeField] private ShipListConfig _shipListConfig;
         [SerializeField] private ModuleListConfig _moduleListConfig;
 
-        private List<ModuleConfig> WeaponModules;
-        private List<ModuleConfig> StandardModules;
+        private List<IModuleConfig> WeaponModules;
+        private List<IModuleConfig> StandardModules;
         
         private void Awake()
         {
             base.Awake();
 
-            WeaponModules = new List<ModuleConfig>();
-            StandardModules = new List<ModuleConfig>();
+            WeaponModules = new List<IModuleConfig>();
+            StandardModules = new List<IModuleConfig>();
             
             for (int i = 0; i < _moduleListConfig.ModuleConfigs.Count; i++)
             {
                 var config = _moduleListConfig.ModuleConfigs[i];
 
-                if (config.Strategy.ModuleType == ModuleType.Standard)
+                if (config.ModuleType == ModuleType.Standard)
                 {
                     StandardModules.Add(config);
                 }
-                else if (config.Strategy.ModuleType == ModuleType.Weapon)
+                else if (config.ModuleType == ModuleType.Weapon)
                 {
                     WeaponModules.Add(config);
                 }
@@ -45,12 +45,12 @@ namespace Managers.Init
             return _moduleListConfig.ModuleConfigs;
         }
 
-        public ModuleConfig GetRandomWeaponModule()
+        public IModuleConfig GetRandomWeaponModule()
         {
             return WeaponModules[Random.Range(0, WeaponModules.Count)];
         }
         
-        public ModuleConfig GetRandomStandardModule()
+        public IModuleConfig GetRandomStandardModule()
         {
             return StandardModules[Random.Range(0, StandardModules.Count)];
         }

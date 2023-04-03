@@ -10,10 +10,10 @@ namespace UI.ModuleSelectorScreen
         [SerializeField] private TMP_Text _typeText;
         [SerializeField] private TMP_Text _descriptionText;
         
-        public void SetInfo(ModuleConfig config)
+        public void SetInfo(IModuleConfig config)
         {
-            _typeText.text = config.Strategy.ModuleType.ToString();
-            _descriptionText.text = config.Strategy.Description.ToString();
+            _typeText.text = config.ModuleType.ToString();
+            _descriptionText.text = config.Description.ToString();
         }
     }
 }

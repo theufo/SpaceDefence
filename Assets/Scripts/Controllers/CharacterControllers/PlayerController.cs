@@ -40,17 +40,17 @@ namespace Controllers.CharacterControllers
 
         public override void FireWeapon1()
         {
-            if (_weaponModuleStrategies.Count > 0)
+            if (_weaponModuleControllers.Count > 0)
             {
-                _weaponModuleStrategies[0]?.Activate();
+                _weaponModuleControllers[0]?.Activate();
             }
         }
 
         public override void FireWeapon2()
         {
-            if (_weaponModuleStrategies.Count > 1)
+            if (_weaponModuleControllers.Count > 1)
             {
-                _weaponModuleStrategies[1]?.Activate();
+                _weaponModuleControllers[1]?.Activate();
             }
         }
 

@@ -1,6 +1,6 @@
 using System.Collections.Generic;
-using Configs.Strategies;
 using Controllers.CellControllers;
+using Controllers.Modules;
 
 namespace Controllers.CharacterControllers
 {
@@ -8,7 +8,7 @@ namespace Controllers.CharacterControllers
     {
         string CharacterName { get; set; }
 
-        void Init(CellsController cellsController, List<WeaponModuleStrategy> weaponModuleStrategies);
+        void Init(CellsController cellsController, List<WeaponModuleController> weaponModuleControllers);
         void MoveRight();
         void MoveLeft();
         void MoveUp();

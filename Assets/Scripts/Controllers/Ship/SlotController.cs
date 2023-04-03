@@ -36,14 +36,14 @@ namespace Controllers.Ship
             _collider.enabled = enable;
         }
 
-        public void SetModule(ModuleView moduleView)
+        public void SetModule(ModuleView moduleController)
         {
-            _moduleView = moduleView;
+            _moduleView = moduleController;
 
-            if (moduleView != null)
+            if (moduleController != null)
             {
-                moduleView.transform.parent = gameObject.transform;
-                moduleView.transform.localPosition = Vector3.zero;
+                moduleController.transform.parent = gameObject.transform;
+                moduleController.transform.localPosition = Vector3.zero;
             }
         }
     }

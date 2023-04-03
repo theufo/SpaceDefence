@@ -53,7 +53,7 @@ public class ShipView : MonoBehaviour
         _battleCollider.enabled = true;
 
         BattleStatsController = gameObject.AddComponent<BattleStatsController>();
-        BattleStatsController.Init(_shipConfig, _shipSlotsController.InitStandardModuleStrategies(), _shipSlotsController.InitWeaponModuleStrategies());
+        BattleStatsController.Init(_shipConfig, _shipSlotsController.GetStandardModuleViews(), _shipSlotsController.GetWeaponModuleViews());
     }
 
     public SlotController[] GetStandardSlots()

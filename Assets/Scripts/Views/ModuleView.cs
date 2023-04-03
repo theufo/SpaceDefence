@@ -12,12 +12,10 @@ public class ModuleView : MonoBehaviour
     private BoxCollider _collider;
 
     private Transform _originParent;
+    private IModuleConfig _config;
 
     private SlotController _slotController;
-    private ModuleConfig _config;
-    private Action<ModuleConfig> _callback;
-
-    private IModuleStrategy _moduleStrategy;
+    private Action<IModuleConfig> _callback;
 
     private void Awake()
     {
@@ -25,11 +23,11 @@ public class ModuleView : MonoBehaviour
         _moduleTrigger.OnModuleSlotTouch += OnModuleSlotTouch;
     }
 
-    public void Init(ModuleConfig moduleConfig, Action<ModuleConfig> callback = null)
+    public void Init(IModuleConfig moduleConfig, Action<IModuleConfig> callback = null)
     {
         _callback = callback;
         _config = moduleConfig;
-        _moduleTrigger.Init(_config.Strategy.ModuleType);
+        _moduleTrigger.Init(_config.ModuleType);
     }
 
     public void SetOrigin(Transform transform)
@@ -38,12 +36,9 @@ public class ModuleView : MonoBehaviour
         this.transform.parent = _originParent;
     }
 
-    public IModuleStrategy InstantiateStrategy()
+    public IModuleConfig GetConfig()
     {
-        if (_config == null) return null;
-
-        _moduleStrategy = Instantiate(_config.Strategy, transform);
-        return _moduleStrategy;
+        return _config;
     }
 
     private void OnModuleSlotTouch(SlotController slotController)
@@ -92,7 +87,7 @@ public class ModuleView : MonoBehaviour
             _slotController.SetModule(this);
         }
     }
-    
+
     private void OnMouseOver()
     {
         _callback?.Invoke(_config);

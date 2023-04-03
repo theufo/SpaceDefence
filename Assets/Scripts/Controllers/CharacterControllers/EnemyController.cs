@@ -46,12 +46,12 @@ namespace Controllers.CharacterControllers
 
         public override void FireWeapon1()
         {
-            _weaponModuleStrategies[0]?.Activate();
+            _weaponModuleControllers[0]?.Activate();
         }
 
         public override void FireWeapon2()
         {
-            _weaponModuleStrategies[1]?.Activate();
+            _weaponModuleControllers[1]?.Activate();
         }
 
         public void InitBehaviorTree()
@@ -59,9 +59,9 @@ namespace Controllers.CharacterControllers
             _tree = new BehaviorTree();
 
             var fireNode1 = new FireNode();
-            fireNode1.Setup(_weaponModuleStrategies[0], FireWeapon1);
+            fireNode1.Setup(_weaponModuleControllers[0], FireWeapon1);
             var fireNode2 = new FireNode();
-            fireNode2.Setup(_weaponModuleStrategies[1], FireWeapon2);
+            fireNode2.Setup(_weaponModuleControllers[1], FireWeapon2);
 
             var moveRightNode = new MoveNode();
             moveRightNode.Setup(_cellsController.CanMoveRight, MoveRight);

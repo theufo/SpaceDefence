@@ -2,11 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Configs;
-using Configs.Strategies;
 using Controllers.CharacterControllers;
-using Managers;
+using Controllers.Modules;
 using Managers.Battle;
 using UnityEngine;
+using Utils;
 
 namespace Controllers
 {
@@ -40,32 +40,28 @@ namespace Controllers
         public float WeaponCooldownSpeed { get; private set; } = 1;
         public float ShieldRechargeSpeed { get; private set; } = 1;
 
-        public List<WeaponModuleStrategy> WeaponModules { get; private set; }
+        public List<WeaponModuleController> WeaponModules { get; private set; }
         
         public Action<float> OnHealthChanged;
         public Action<float> OnShieldChanged;
 
         private ShipConfig _shipConfig;
-        private List<IModuleStrategy> _standardModuleStrategies;
-        private List<IModuleStrategy> _weaponModuleStrategies;
+        private List<IModuleController> _standardModules;
+        private List<IModuleController> _weaponModules;
 
-        public void Init(ShipConfig shipConfig, List<IModuleStrategy> moduleStrategies, List<IModuleStrategy> weaponModuleStrategies)
+        public void Init(ShipConfig shipConfig, List<ModuleView> standardModuleConfigs, List<ModuleView> weaponModuleConfigs)
         {
             _shipConfig = shipConfig;
-            _standardModuleStrategies = moduleStrategies;
-            _weaponModuleStrategies = weaponModuleStrategies;
 
             HealthMax = _shipConfig.Health;
             Health = _shipConfig.Health;
             ShieldMax = _shipConfig.Shield;
             Shield = _shipConfig.Shield / 2;
 
-            SetupStrategies(_standardModuleStrategies);
-            SetupStrategies(_weaponModuleStrategies);
-            StartStrategies(_standardModuleStrategies);
-            StartStrategies(_weaponModuleStrategies);
+            _standardModules = SetupModules(standardModuleConfigs);
+            _weaponModules = SetupModules(weaponModuleConfigs);
             
-            WeaponModules = _weaponModuleStrategies.Cast<WeaponModuleStrategy>().ToList();
+            WeaponModules = _weaponModules.Cast<WeaponModuleController>().ToList();
         }
 
         private void Update()
@@ -76,21 +72,25 @@ namespace Controllers
                 Mathf.Clamp(shield, 0, ShieldMax);
                 Shield = shield;
             }
+
+            UpdateModules(_standardModules);
+            UpdateModules(_weaponModules);
         }
 
         public void ModifyWeaponCooldownSpeed(float value)
         {
             WeaponCooldownSpeed *= 1 - value;
         }
-        
+
         public void ModifyShieldCooldownSpeed(float value)
         {
             ShieldRechargeSpeed *= 1 - value;
         }
-        
+
         public void ModifyMaxHealth(float value)
         {
             HealthMax += value;
+            Health = HealthMax;
         }
 
         public void ModifyMaxShield(float value)
@@ -119,20 +119,23 @@ namespace Controllers
             }
         }
 
-        private void SetupStrategies(List<IModuleStrategy> moduleStrategies)
+        private List<IModuleController> SetupModules(List<ModuleView> moduleViews)
         {
-            for (int i = 0; i < moduleStrategies.Count; i++)
+            var list = new List<IModuleController>(moduleViews.Count);
+            for (int i = 0; i < moduleViews.Count; i++)
             {
-                var strategy = moduleStrategies[i];
-                strategy.Setup(this);
+                var moduleView = moduleViews[i];
+                list.Add(FactoryUtils.ProduceModuleController(moduleView, this));
             }
+
+            return list;
         }
 
-        private void StartStrategies(List<IModuleStrategy> moduleStrategies)
+        private void UpdateModules(List<IModuleController> moduleControllers)
         {
-            for (int i = 0; i < moduleStrategies.Count; i++)
+            foreach (var module in moduleControllers)
             {
-                moduleStrategies[i].StartModule();
+                module.Update(Time.deltaTime);
             }
         }
     }

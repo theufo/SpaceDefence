@@ -39,14 +39,14 @@ namespace Controllers.Ship
             return _standardSlots;
         }
 
-        public List<IModuleStrategy> InitStandardModuleStrategies()
+        public List<ModuleView> GetStandardModuleViews()
         {
-            return InitModuleStrategies(_standardSlots);
+            return InitModulesConfigs(_standardSlots);
         }
     
-        public List<IModuleStrategy> InitWeaponModuleStrategies()
+        public List<ModuleView> GetWeaponModuleViews()
         {
-            return InitModuleStrategies(_weaponSlots);
+            return InitModulesConfigs(_weaponSlots);
         }
 
         private SlotController[] GetSlotsByType(ModuleType type)
@@ -66,23 +66,23 @@ namespace Controllers.Ship
             }
         }
 
-        private List<IModuleStrategy> InitModuleStrategies(SlotController[] slotControllers)
+        private List<ModuleView> InitModulesConfigs(SlotController[] slotControllers)
         {
-            var strategies = new List<IModuleStrategy>();
+            var moduleViews = new List<ModuleView>();
 
             for (int i = 0; i < slotControllers.Length; i++)
             {
                 if (slotControllers[i].Empty) continue;
 
                 var slot = slotControllers[i];
-                var strategy = slot.ModuleView.InstantiateStrategy();
-                if (strategy != null)
+                var moduleView = slot.ModuleView;
+                if (moduleView != null)
                 {
-                    strategies.Add(strategy);
+                    moduleViews.Add(moduleView);
                 }
             }
 
-            return strategies;
+            return moduleViews;
         }
     }
 }

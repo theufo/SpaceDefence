@@ -17,7 +17,7 @@ namespace UI.ModuleSelectorScreen
             base.OnShow();
         
             _moduleInfoPanelComponent.gameObject.SetActive(false);
-            ShipModulesManager.Instance.OnModuleHighlightedAction += OnShipHighlighted;
+            ShipModulesManager.Instance.OnModuleHighlightedAction += OnModuleHighlighted;
         
             _startButton.onClick.AddListener(OnStartPressed);
         }
@@ -26,7 +26,7 @@ namespace UI.ModuleSelectorScreen
         {
             base.OnHide();
         
-            ShipModulesManager.Instance.OnModuleHighlightedAction -= OnShipHighlighted;
+            ShipModulesManager.Instance.OnModuleHighlightedAction -= OnModuleHighlighted;
             _startButton.onClick.RemoveAllListeners();
         }
 
@@ -35,7 +35,7 @@ namespace UI.ModuleSelectorScreen
             HangarManager.Instance.CompleteSetModules();
         }
 
-        private void OnShipHighlighted(ModuleConfig config)
+        private void OnModuleHighlighted(IModuleConfig config)
         {
             if (config != null)
             {

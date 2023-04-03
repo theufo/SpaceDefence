@@ -11,7 +11,7 @@ namespace DefaultNamespace.Views
 
         private int _stackSize;
 
-        public void AddToStack(ModuleConfig configModuleConfig, Action<ModuleConfig> onModuleHighlighted)
+        public void AddToStack(IModuleConfig configModuleConfig, Action<IModuleConfig> onModuleHighlighted)
         {
             if (_transforms.Length <= _stackSize + 1)
             {

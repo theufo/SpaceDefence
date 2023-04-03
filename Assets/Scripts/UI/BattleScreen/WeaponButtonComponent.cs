@@ -1,5 +1,6 @@
 using Assets.Scripts.Core.WindowSystem;
 using Configs.Strategies;
+using Controllers.Modules;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,7 +16,7 @@ namespace UI.BattleScreen
 
         private bool _disabled;
 
-        public void SetInfo(WeaponModuleStrategy weaponModule)
+        public void SetInfo(WeaponModuleController weaponModule)
         {
             if (weaponModule == null)
             {

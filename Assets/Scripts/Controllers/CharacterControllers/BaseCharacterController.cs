@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Configs.Strategies;
 using Controllers.CellControllers;
+using Controllers.Modules;
 using UnityEngine;
 
 namespace Controllers.CharacterControllers
@@ -10,13 +11,13 @@ namespace Controllers.CharacterControllers
         public virtual string CharacterName { get; set; }
         
         protected CellsController _cellsController;
-        protected List<WeaponModuleStrategy> _weaponModuleStrategies;
+        protected List<WeaponModuleController> _weaponModuleControllers;
         protected bool _enabled;
 
-        public void Init(CellsController cellsController, List<WeaponModuleStrategy> weaponModuleStrategies)
+        public void Init(CellsController cellsController, List<WeaponModuleController> weaponModuleControllers)
         {
             _cellsController = cellsController;
-            _weaponModuleStrategies = weaponModuleStrategies;
+            _weaponModuleControllers = weaponModuleControllers;
             _enabled = true;
         }
 

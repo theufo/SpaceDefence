@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fbabb483de74724a9ad8709e9dbe238, type: 3}
+  m_Script: {fileID: 11500000, guid: 87f14da6fac74398ae832006449cc708, type: 3}
   m_Name: WeaponCooldownModuleConfig
   m_EditorClassIdentifier: 
+  Strategy: {fileID: 0}
   Prefab: {fileID: 5136033761569933081, guid: 60c90d997624f5442a235e48cdf882aa, type: 3}
-  Strategy: {fileID: 3002185425674697353, guid: 3179d6178a2fb9e4da9a800400d5d6c1,
-    type: 3}
+  Value: -0.2
