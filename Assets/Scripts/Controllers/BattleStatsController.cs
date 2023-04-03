@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using Configs;
 using Configs.Strategies;
+using Controllers.CharacterControllers;
+using Managers;
+using Managers.Battle;
 using UnityEngine;
 
-namespace DefaultNamespace.Controllers
+namespace Controllers
 {
     public class BattleStatsController : MonoBehaviour
     {

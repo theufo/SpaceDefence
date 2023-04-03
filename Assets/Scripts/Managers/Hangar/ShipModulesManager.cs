@@ -5,7 +5,7 @@ using DefaultNamespace.Common;
 using DefaultNamespace.Views;
 using UnityEngine;
 
-namespace DefaultNamespace.Managers
+namespace Managers.Hangar
 {
     public class ShipModulesManager : Singleton<ShipModulesManager>
     {

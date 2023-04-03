@@ -1,37 +1,42 @@
 using DefaultNamespace;
+using Managers;
+using Managers.Battle;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Screen = Assets.Scripts.Core.WindowSystem.Screen;
 
-public class EndGameScreen : Screen
+namespace UI.EndGameScreen
 {
-    [SerializeField] private TMP_Text _winText;
-
-    [SerializeField] private Button _restartButton;
-
-    public override void OnShow()
+    public class EndGameScreen : Screen
     {
-        base.OnShow();
+        [SerializeField] private TMP_Text _winText;
+
+        [SerializeField] private Button _restartButton;
+
+        public override void OnShow()
+        {
+            base.OnShow();
         
-        _restartButton.onClick.AddListener(OnRestartPressed);
-    }
+            _restartButton.onClick.AddListener(OnRestartPressed);
+        }
 
-    public override void OnHide()
-    {
-        base.OnHide();
+        public override void OnHide()
+        {
+            base.OnHide();
         
-        _restartButton.onClick.RemoveAllListeners();
-    }
+            _restartButton.onClick.RemoveAllListeners();
+        }
 
-    public void SetInfo(string winnerCharacterName)
-    {
-        _winText.SetText($"{winnerCharacterName} wins!");
-    }
+        public void SetInfo(string winnerCharacterName)
+        {
+            _winText.SetText($"{winnerCharacterName} wins!");
+        }
 
-    private void OnRestartPressed()
-    {
-        BattleManager.Instance.ClearScene();
-        GameInitializer.Instance.Restart();
+        private void OnRestartPressed()
+        {
+            BattleManager.Instance.ClearScene();
+            GameInitializer.Instance.Restart();
+        }
     }
 }

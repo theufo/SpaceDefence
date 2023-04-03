@@ -3,7 +3,7 @@ using Configs;
 using DefaultNamespace.Common;
 using UnityEngine;
 
-namespace DefaultNamespace.Managers
+namespace Managers.Init
 {
     public class ConfigsManager : Singleton<ConfigsManager>
     {

@@ -1,6 +1,6 @@
 using UnityEngine.SceneManagement;
 
-namespace DefaultNamespace.Utils
+namespace Utils
 {
     public static class SceneUtils
     {

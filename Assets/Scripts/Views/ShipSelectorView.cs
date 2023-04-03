@@ -1,6 +1,7 @@
 using System;
 using Configs;
-using DefaultNamespace.Managers;
+using Managers;
+using Managers.Hangar;
 using UnityEngine;
 
 namespace DefaultNamespace.Views

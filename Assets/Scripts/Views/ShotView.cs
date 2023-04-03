@@ -1,5 +1,5 @@
 using System.Collections;
-using DefaultNamespace.Controllers;
+using Controllers;
 using UnityEngine;
 
 namespace DefaultNamespace.Views

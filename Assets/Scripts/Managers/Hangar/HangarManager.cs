@@ -1,12 +1,17 @@
 using System;
 using Assets.Scripts.Core.WindowSystem;
 using Configs;
-using DefaultNamespace.Controllers;
+using Controllers.CharacterControllers;
+using DefaultNamespace;
+using DefaultNamespace.Common;
+using Managers.Init;
+using UI.ModuleSelectorScreen;
+using UI.ShipSelectorScreen;
 using UnityEngine;
 
-namespace DefaultNamespace.Managers
+namespace Managers.Hangar
 {
-    public class HangarManager : Common.Singleton<HangarManager>
+    public class HangarManager : Singleton<HangarManager>
     {
         [SerializeField] private ShipModulesManager _shipModulesManager;
         [SerializeField] private ShipSelectionManager _selectionManager;

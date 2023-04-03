@@ -1,4 +1,4 @@
-using DefaultNamespace.Controllers;
+using Controllers;
 using UnityEngine;
 
 namespace Configs

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace DefaultNamespace.Controllers
+namespace Controllers.CellControllers
 {
     public class CellsController : MonoBehaviour
     {

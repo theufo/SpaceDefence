@@ -1,8 +1,9 @@
 using System;
 using Configs;
+using Controllers.Ship;
 using UnityEngine;
 
-namespace DefaultNamespace.Controllers.Modules
+namespace Controllers.Modules
 {
     public class ModuleTrigger : MonoBehaviour
     {

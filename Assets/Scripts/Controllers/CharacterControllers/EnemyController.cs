@@ -1,9 +1,9 @@
+using Controllers.CharacterControllers.BehaviorTreeNodes;
 using DefaultNamespace.Common.BehaviorTree;
-using DefaultNamespace.Controllers.BehaviorTreeNodes;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace DefaultNamespace.Controllers
+namespace Controllers.CharacterControllers
 {
     public class EnemyController : BaseCharacterController
     {

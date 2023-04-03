@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace DefaultNamespace.Controllers
+namespace Controllers.CellControllers
 {
     public class CellController : MonoBehaviour
     {

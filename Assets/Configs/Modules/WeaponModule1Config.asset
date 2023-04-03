@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fbabb483de74724a9ad8709e9dbe238, type: 3}
   m_Name: WeaponModule1Config
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 5136033761569933081, guid: 60c90d997624f5442a235e48cdf882aa, type: 3}
+  Prefab: {fileID: 5136033761569933081, guid: 51bba5607b0add647847236094518b55, type: 3}
   Strategy: {fileID: 94851859166012640, guid: acf42a62e9787904db283bdeee6508c2, type: 3}

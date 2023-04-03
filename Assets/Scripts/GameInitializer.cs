@@ -1,9 +1,11 @@
 using System;
 using Assets.Scripts.Core.WindowSystem;
-using DefaultNamespace.Managers;
-using DefaultNamespace.UI.BattleScreen;
-using DefaultNamespace.Utils;
+using Managers;
+using Managers.Battle;
+using Managers.Hangar;
+using UI.EndGameScreen;
 using UnityEngine.SceneManagement;
+using Utils;
 
 namespace DefaultNamespace
 {

@@ -3,7 +3,7 @@ using Configs;
 using TMPro;
 using UnityEngine;
 
-namespace DefaultNamespace.UI
+namespace UI.ModuleSelectorScreen
 {
     public class ModuleInfoPanelComponent : ScreenComponent
     {

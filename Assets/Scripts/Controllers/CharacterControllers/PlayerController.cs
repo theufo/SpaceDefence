@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace DefaultNamespace.Controllers
+namespace Controllers.CharacterControllers
 {
     public class PlayerController : BaseCharacterController
     {

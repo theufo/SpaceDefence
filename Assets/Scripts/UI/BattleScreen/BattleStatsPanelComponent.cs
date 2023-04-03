@@ -1,9 +1,9 @@
 using Assets.Scripts.Core.WindowSystem;
-using DefaultNamespace.Controllers;
+using Controllers;
 using TMPro;
 using UnityEngine;
 
-namespace DefaultNamespace.UI.BattleScreen
+namespace UI.BattleScreen
 {
     public class BattleStatsPanelComponent : ScreenComponent
     {

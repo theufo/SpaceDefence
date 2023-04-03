@@ -3,49 +3,52 @@ using Configs.Strategies;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class WeaponButtonComponent : ScreenComponent
+namespace UI.BattleScreen
 {
-    [SerializeField] private Image _progressBar;
-
-    private WeaponModuleStrategy _weaponModuleStrategy;
-    private float _cooldown;
-    private float _shootTime;
-
-    private bool _disabled;
-
-    public void SetInfo(WeaponModuleStrategy weaponModule)
+    public class WeaponButtonComponent : ScreenComponent
     {
-        if (weaponModule == null)
+        [SerializeField] private Image _progressBar;
+
+        private WeaponModuleStrategy _weaponModuleStrategy;
+        private float _cooldown;
+        private float _shootTime;
+
+        private bool _disabled;
+
+        public void SetInfo(WeaponModuleStrategy weaponModule)
         {
-            _disabled = true;
-            _progressBar.fillAmount = 0;
-            return;
-        }
-        _cooldown = weaponModule.Cooldown;
-        weaponModule.OnShotActivated += OnShotActivated;
+            if (weaponModule == null)
+            {
+                _disabled = true;
+                _progressBar.fillAmount = 0;
+                return;
+            }
+            _cooldown = weaponModule.Cooldown;
+            weaponModule.OnShotActivated += OnShotActivated;
         
-        OnShotActivated();
-    }
+            OnShotActivated();
+        }
 
-    public override void OnHide()
-    {
-        base.OnHide();
+        public override void OnHide()
+        {
+            base.OnHide();
 
-        _weaponModuleStrategy.OnShotActivated -= OnShotActivated;
-    }
+            _weaponModuleStrategy.OnShotActivated -= OnShotActivated;
+        }
 
-    private void OnShotActivated()
-    {
-        _progressBar.fillAmount = 0;
-        _shootTime = _cooldown;
-    }
+        private void OnShotActivated()
+        {
+            _progressBar.fillAmount = 0;
+            _shootTime = _cooldown;
+        }
 
-    private void Update()
-    {
-        if (_disabled) return;
-        if (_progressBar.fillAmount >= 1) return;
+        private void Update()
+        {
+            if (_disabled) return;
+            if (_progressBar.fillAmount >= 1) return;
 
-        _shootTime -= Time.deltaTime;
-        _progressBar.fillAmount = 1 - (_shootTime / _cooldown);
+            _shootTime -= Time.deltaTime;
+            _progressBar.fillAmount = 1 - (_shootTime / _cooldown);
+        }
     }
 }

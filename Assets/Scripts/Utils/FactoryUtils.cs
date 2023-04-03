@@ -2,7 +2,7 @@ using System;
 using Configs;
 using UnityEngine;
 
-namespace DefaultNamespace.Utils
+namespace Utils
 {
      public static class FactoryUtils
     {

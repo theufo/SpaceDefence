@@ -1,5 +1,6 @@
 using Configs;
-using DefaultNamespace.Controllers;
+using Controllers;
+using Controllers.Ship;
 using UnityEngine;
 
 public class ShipView : MonoBehaviour

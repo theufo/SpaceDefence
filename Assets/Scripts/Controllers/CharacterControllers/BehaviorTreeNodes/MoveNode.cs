@@ -2,7 +2,7 @@ using System;
 using DefaultNamespace.Common.BehaviorTree;
 using UnityEngine;
 
-namespace DefaultNamespace.Controllers.BehaviorTreeNodes
+namespace Controllers.CharacterControllers.BehaviorTreeNodes
 {
     public class MoveNode : Node
     {

@@ -1,7 +1,7 @@
 using System;
 using Configs;
-using DefaultNamespace.Utils;
 using UnityEngine;
+using Utils;
 
 namespace DefaultNamespace.Views
 {

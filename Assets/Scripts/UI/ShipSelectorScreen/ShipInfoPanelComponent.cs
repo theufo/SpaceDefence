@@ -3,7 +3,7 @@ using Configs;
 using TMPro;
 using UnityEngine;
 
-namespace DefaultNamespace.UI
+namespace UI.ShipSelectorScreen
 {
     public class ShipInfoPanelComponent : ScreenComponent
     {

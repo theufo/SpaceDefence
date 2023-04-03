@@ -1,8 +1,9 @@
 using System.Collections.Generic;
 using Configs.Strategies;
+using Controllers.CellControllers;
 using UnityEngine;
 
-namespace DefaultNamespace.Controllers
+namespace Controllers.CharacterControllers
 {
     public abstract class BaseCharacterController : MonoBehaviour, ICharacterController
     {

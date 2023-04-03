@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using Configs.Strategies;
+using Controllers.CellControllers;
 
-namespace DefaultNamespace.Controllers
+namespace Controllers.CharacterControllers
 {
     public interface ICharacterController
     {

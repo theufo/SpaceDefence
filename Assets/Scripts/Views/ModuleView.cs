@@ -1,6 +1,7 @@
 using System;
 using Configs;
-using DefaultNamespace.Controllers.Modules;
+using Controllers.Modules;
+using Controllers.Ship;
 using UnityEngine;
 
 public class ModuleView : MonoBehaviour

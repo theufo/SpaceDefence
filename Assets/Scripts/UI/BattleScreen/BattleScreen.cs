@@ -1,8 +1,8 @@
-using DefaultNamespace.Controllers;
+using Controllers;
 using UnityEngine;
 using Screen = Assets.Scripts.Core.WindowSystem.Screen;
 
-namespace DefaultNamespace.UI.BattleScreen
+namespace UI.BattleScreen
 {
     public class BattleScreen : Screen
     {

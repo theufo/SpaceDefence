@@ -1,12 +1,12 @@
-using DefaultNamespace.Controllers;
+using Controllers;
 using UnityEngine;
 
 namespace Configs.Modules.Strategies
 {
-    public class ShieldCooldownModuleStrategy : BaseModuleStrategy
+    public class WeaponCooldownModuleStrategy : BaseModuleStrategy
     {
         public override ModuleType ModuleType => ModuleType.Standard;
-        public override string Description => $"Increases shield recharge speed by {Value * 100}%";
+        public override string Description => $"Reduces weapons cooldown by {Value * 100}%";
 
         [SerializeField] private float Value;
 
@@ -14,7 +14,7 @@ namespace Configs.Modules.Strategies
         {
             base.Setup(battleStatsController);
 
-            battleStatsController.ModifyShieldCooldownSpeed(Value);
+            battleStatsController.ModifyWeaponCooldownSpeed(Value);
         }
     }
 }
