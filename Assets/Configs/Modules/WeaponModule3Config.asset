@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b114d2985cbb40fdb255e316cba85690, type: 3}
   m_Name: WeaponModule3Config
   m_EditorClassIdentifier: 
-  Strategy: {fileID: 0}
-  Prefab: {fileID: 0}
-  _damage: 5
-  _cooldown: 3
-  _shotPrefab: {fileID: 1406793274519429761, guid: b91117fb3f0abb44185a2105ba975c8e,
+  Prefab: {fileID: 5136033761569933081, guid: 51bba5607b0add647847236094518b55, type: 3}
+  _damage: 20
+  _cooldown: 5
+  _shotPrefab: {fileID: 1406793274519429761, guid: 582f2df938aeff94c9d54089ebe4ebf1,
     type: 3}
